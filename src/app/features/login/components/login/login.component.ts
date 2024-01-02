@@ -1,5 +1,9 @@
 import {Component, inject} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
+import {easyPassword, middlePassword, strongPassword} from "../../constants/pasword.patterns";
+
+
+
 
 @Component({
   selector: 'app-login',
@@ -14,17 +18,14 @@ export class LoginComponent {
   });
 
   isEasyPassword() {
-    const easyPassword = /^[a-zA-Z]+$|^\d+$|^[^a-zA-Z\d\s]+$/;
     return easyPassword.test(this.form.getRawValue().password);
   }
 
   isMediumPassword() {
-    const middlePassword = /^(?=.*[a-zA-Z])(?=.*\d)|(?=.*[a-zA-Z])(?=.*[^a-zA-Z\d\s])|(?=.*\d)(?=.*[^a-zA-Z\d\s])/;
     return middlePassword.test(this.form.getRawValue().password);
   }
 
   isStrongPassword() {
-    const strongPassword = /^(?=.*[a-zA-Z])(?=.*\d)(?=.*[^a-zA-Z\d\s])/;
     return strongPassword.test(this.form.getRawValue().password);
   }
 
