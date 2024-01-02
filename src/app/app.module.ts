@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule, provideClientHydration } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
-import {AppRoutingModule} from "./core/rooting/app-routing.module";
+import {AppRoutingModule} from "./core/routing/app-routing.module";
 
 @NgModule({
   declarations: [
