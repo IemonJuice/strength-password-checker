@@ -1,6 +1,8 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { LoginComponent } from './login.component';
+import {By} from "@angular/platform-browser";
+
 
 describe('LoginComponent', () => {
   let component: LoginComponent;
@@ -11,7 +13,7 @@ describe('LoginComponent', () => {
       declarations: [LoginComponent]
     })
     .compileComponents();
-    
+
     fixture = TestBed.createComponent(LoginComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
@@ -20,4 +22,13 @@ describe('LoginComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+  it('should be all grey', () => {
+    const qualityForm = fixture.debugElement.query(By.css('.form__password_quality '));
+    expect(qualityForm.classes['form__password_quality']).toBeTruthy();
+    expect(qualityForm.classes['easy']).toBeFalsy();
+
+  })
+
+
 });
+
