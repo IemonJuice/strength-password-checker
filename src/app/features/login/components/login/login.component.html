@@ -1,20 +1,31 @@
 <div class="wrapper">
   <form [formGroup]="form" class="form">
+
     <label>username</label>
     <input formControlName="username" type="text" class="form__username">
+
     <label>password</label>
-    <input formControlName="password" type="password" class="form__password">
-    <div class="form__password_quality">
-      <div>
-        section 1
-      </div>
-      <div>
-        section 2
-      </div>
-      <div>
-        section 3
-      </div>
+    <input minlength="8" formControlName="password" type="password" class="form__password">
+
+    <div
+      [ngClass]="{
+      'untouched-form': form.untouched || form.touched,
+      'invalid-form': form.touched && !form.valid,
+      'easy': isEasyPassword() && form.valid,
+      'medium' : isMediumPassword() && form.valid,
+      'strong' : isStrongPassword() && form.valid,
+      }"
+      class="form__password_quality">
+
+      <div></div>
+      <div></div>
+      <div></div>
+
     </div>
-    <button class="form__submit_button" (click)="submitForm()">Submit</button>
+
+    <button [disabled]="true" class="form__submit_button" (click)="submitForm()">Submit</button>
+
   </form>
 </div>
+
+

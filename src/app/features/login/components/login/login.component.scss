@@ -12,7 +12,6 @@
   outline: 2px solid lightblue;
 }
 
-
 .wrapper {
   max-width: 100vw;
   height: 95vh;
@@ -33,6 +32,17 @@
     &__password {
       @include form-input-element;
 
+      &_quality {
+        width: 60%;
+        @include centered-flex-column;
+        flex-direction: row;
+        justify-content: space-between;
+
+        & > div {
+          color: white;
+          font-size: 1.3em;
+        }
+      }
     }
 
     &__submit {
@@ -44,10 +54,96 @@
         border: none;
       }
     }
-    label{
+
+    label {
       font-size: 2em;
       color: white;
       font-family: "JetBrains Mono Medium", sans-serif;
     }
+  }
+}
+
+.untouched-form{
+  & > div {
+    outline: 1px solid darkblue;
+    width: 100px;
+    height: 10px;
+    transition-duration: 1s;
+    color: darkblue!important;
+    background-color: grey;
+  }
+}
+
+.invalid-form{
+  & > div {
+    outline: 1px solid darkblue;
+    width: 100px;
+    height: 10px;
+    transition-duration: 1s;
+    color: darkblue!important;
+    background-color: #ff0000;
+  }
+}
+.easy {
+
+  & > div:nth-child(1) {
+    width: 100px;
+    height: 10px;
+    background-color: red;
+  }
+
+  & > div:nth-child(2) {
+    width: 100px;
+    height: 10px;
+    background-color: grey;
+  }
+
+  & > div:nth-child(3) {
+    width: 100px;
+    height: 10px;
+    background-color: grey;
+  }
+}
+
+.medium {
+
+  & > div:nth-child(1) {
+    width: 100px;
+    height: 10px;
+    background-color: orange;
+  }
+
+  & > div:nth-child(2) {
+    width: 100px;
+    height: 10px;
+    background-color: orange;
+  }
+
+  & > div:nth-child(3) {
+    width: 100px;
+    height: 10px;
+    background-color: grey;
+  }
+
+}
+
+.strong {
+
+  & > div:nth-child(1) {
+    width: 100px;
+    height: 10px;
+    background-color: #1eff00;
+  }
+
+  & > div:nth-child(2) {
+    width: 100px;
+    height: 10px;
+    background-color: #1eff00;
+  }
+
+  & > div:nth-child(3) {
+    width: 100px;
+    height: 10px;
+    background-color: #1eff00;
   }
 }
