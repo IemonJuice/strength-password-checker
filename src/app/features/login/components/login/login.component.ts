@@ -7,6 +7,7 @@ import {FormBuilder, FormGroup, Validators} from "@angular/forms";
   styleUrl: './login.component.scss'
 })
 export class LoginComponent {
+
   form: FormGroup = inject(FormBuilder).group({
     username: [''],
     password: ['', [Validators.min(8)]],

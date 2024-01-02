@@ -5,12 +5,12 @@
     <input formControlName="username" type="text" class="form__username">
 
     <label>password</label>
-    <input minlength="8" formControlName="password" type="password" class="form__password">
+    <input required minlength="8" formControlName="password" type="password" class="form__password">
 
     <div
       [ngClass]="{
       'untouched-form': form.untouched || form.touched,
-      'invalid-form': form.touched && !form.valid,
+      'invalid-form': form.touched && form.invalid,
       'easy': isEasyPassword() && form.valid,
       'medium' : isMediumPassword() && form.valid,
       'strong' : isStrongPassword() && form.valid,
@@ -23,7 +23,7 @@
 
     </div>
 
-    <button [disabled]="true" class="form__submit_button" (click)="submitForm()">Submit</button>
+    <button [disabled]="form.invalid" class="form__submit_button" (click)="submitForm()">Submit</button>
 
   </form>
 </div>
